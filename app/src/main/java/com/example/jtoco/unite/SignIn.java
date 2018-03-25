@@ -74,6 +74,9 @@ public class SignIn extends AppCompatActivity {
         final ProgressDialog processDialog = ProgressDialog.show(SignIn.this, "Please wait...", "Processing...", true);
 
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+
+            processDialog.dismiss();
+
             Toast.makeText(SignIn.this, "Sign in error, some fields are empty", Toast.LENGTH_LONG).show();
 
             } else {
@@ -90,7 +93,7 @@ public class SignIn extends AppCompatActivity {
 
                         } else {
 
-                            Toast.makeText(SignIn.this, "Sign in error, check that you have entered your username and password correctly", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignIn.this, "Sign in successful!", Toast.LENGTH_LONG).show();
                             Intent goToUserProfile = new Intent(SignIn.this, Movies.class);
                             startActivity(goToUserProfile);
 

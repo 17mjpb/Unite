@@ -74,11 +74,16 @@ public class AccountCreation extends AppCompatActivity {
         final ProgressDialog processDialog = ProgressDialog.show(AccountCreation.this, "Please wait...", "Processing...", true);
 
         if (!userPassword.equals(userConfirmPassword)) {
+
+            processDialog.dismiss();
+
             Toast.makeText(AccountCreation.this, "Registration error, passwords do not match", Toast.LENGTH_LONG).show();
 
         } else {
 
             if (TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName) || TextUtils.isEmpty(userEmail) || TextUtils.isEmpty(userPassword) || TextUtils.isEmpty(userConfirmPassword)) {
+
+                processDialog.dismiss();
 
                 Toast.makeText(AccountCreation.this, "Registration error, some fields are empty", Toast.LENGTH_LONG).show();
 
