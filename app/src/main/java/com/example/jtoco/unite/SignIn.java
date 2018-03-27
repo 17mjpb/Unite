@@ -39,16 +39,16 @@ public class SignIn extends AppCompatActivity {
         mCreateAccountButton = findViewById(R.id.createAccount);
         mAuth = FirebaseAuth.getInstance();
 
-//        mAuthStateListener = new FirebaseAuth.AuthStateListener() {
-//            @Override
-//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//
-//                if (firebaseAuth.getCurrentUser() != null) {
-//                    Intent goToUserProfile = new Intent(SignIn.this, Movies.class);
-//                    startActivity(goToUserProfile);
-//                }
-//            }
-//        };
+        mAuthStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+
+                if (firebaseAuth.getCurrentUser() != null) {
+                    Intent goToUserProfile = new Intent(SignIn.this, UserProfile.class);
+                    startActivity(goToUserProfile);
+                }
+            }
+        };
 
         mloginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +94,7 @@ public class SignIn extends AppCompatActivity {
                         } else {
 
                             Toast.makeText(SignIn.this, "Sign in successful!", Toast.LENGTH_LONG).show();
-                            Intent goToUserProfile = new Intent(SignIn.this, Movies.class);
+                            Intent goToUserProfile = new Intent(SignIn.this, UserProfile.class);
                             startActivity(goToUserProfile);
 
                         }

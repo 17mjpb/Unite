@@ -97,12 +97,13 @@ public class AccountCreation extends AppCompatActivity {
                         processDialog.dismiss();
 
                         if (task.isSuccessful()) {
+                            String firstName = mFirstName.getText().toString().trim();
                             String lastName = mLastName.getText().toString().trim();
+
                             Toast.makeText(AccountCreation.this, "Registration successful!", Toast.LENGTH_LONG).show();
 
-                            Intent goToUserProfile = new Intent(AccountCreation.this, Movies.class);
-//                            goToUserProfile.putExtra("First Name", mAuth.getCurrentUser().getDisplayName());
-//                            goToUserProfile.putExtra("Last Name", mAuth.getCurrentUser().getEmail());
+                            Intent goToUserProfile = new Intent(AccountCreation.this, UserProfile.class);
+                            goToUserProfile.putExtra("Name", firstName + ' ' + lastName);
                             startActivity(goToUserProfile);
 
                         } else {
